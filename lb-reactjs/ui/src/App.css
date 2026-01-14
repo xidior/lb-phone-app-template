@@ -4,112 +4,92 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 .app {
-    height: 100vh;
+    height: 100%;
     width: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    background-color: var(--background-primary);
-
+    overflow: hidden;
     font-family: 'Poppins', sans-serif;
 }
 
 .app-wrapper {
     width: 100%;
     height: 100%;
+    overflow: hidden;
+}
 
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Light/Dark theme support */
+[data-theme='dark'] {
+    background: #000000;
+    color: #ffffff;
+}
+
+[data-theme='dark'] .passenger-dashboard,
+[data-theme='dark'] .driver-dashboard {
+    background: #000000;
+}
+
+[data-theme='dark'] .location-inputs,
+[data-theme='dark'] .available-drivers,
+[data-theme='dark'] .driver-info-card,
+[data-theme='dark'] .active-ride-card,
+[data-theme='dark'] .ride-request-card {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+}
+
+[data-theme='dark'] .driver-card:hover {
+    background: #252525;
+}
+
+[data-theme='dark'] .ride-request-card:hover {
+    background: #252525;
+}
+
+/* Dev mode wrapper for phone frame */
+.dev-wrapper {
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
 }
 
-.header,
-.button-wrapper {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    gap: 0.2rem;
-}
-
-.button-wrapper {
-    gap: 1rem;
-}
-
-.title {
-    font-size: 1.4rem;
-    font-weight: 700;
-
-    color: var(--text-primary);
-}
-
-.subtitle {
-    font-size: 1rem;
-    font-weight: 400;
-
-    color: var(--text-secondary);
-}
-
-button {
-    width: 14rem;
-    height: 3.25rem;
-
-    background-color: var(--background-highlight);
-    color: var(--text-primary);
-
-    border: none;
-    border-radius: 0.3rem;
-
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-
-    cursor: pointer;
-    transition: all 0.25s ease-in-out;
-
-    user-select: none;
-}
-
-button:hover {
-    filter: brightness(0.8);
-}
-
-input {
-    width: 14rem;
-    height: 3.25rem;
-
-    background-color: var(--background-highlight);
-    color: var(--text-primary);
-
-    border: none;
-    border-radius: 0.3rem;
-
-    padding: 0 1rem;
-
-    font-size: 0.8rem;
-    font-weight: 600;
-
-    transition: all 0.25s ease-in-out;
-
-    outline: none;
-}
-
-/* Do not edit, this allows you to view changes easily in your browser */
-.dev-wrapper {
+.dev-wrapper > .phone-frame {
     position: absolute;
-
     bottom: 0;
     top: 0;
     left: 0;
     right: 0;
-
     margin: auto;
-
-    width: 29rem;
-    height: 58.5rem;
+    width: 24rem;
+    height: 48rem;
+    max-width: 90vw;
+    max-height: 90vh;
 }
+

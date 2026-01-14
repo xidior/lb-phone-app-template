@@ -1,0 +1,366 @@
+.passenger-dashboard {
+  padding: 20px;
+  padding-top: 60px;
+  background: #f5f5f5;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.user-info h2 {
+  margin: 0 0 5px 0;
+  font-size: 24px;
+  color: #000000;
+}
+
+.user-info p {
+  margin: 0;
+  color: #666666;
+  font-size: 14px;
+}
+
+.logout-btn {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #000000;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #f5f5f5;
+}
+
+/* Ride Request Section */
+.ride-request-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.location-inputs {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.input-group:last-child {
+  border-bottom: none;
+}
+
+.location-icon {
+  font-size: 20px;
+}
+
+.location-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: #000000;
+  outline: none;
+}
+
+.location-input::placeholder {
+  color: #999999;
+}
+
+.request-ride-btn {
+  width: 100%;
+  padding: 16px;
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.request-ride-btn:hover:not(:disabled) {
+  background: #1a1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.request-ride-btn:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Available Drivers */
+.available-drivers {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.available-drivers h3 {
+  margin: 0 0 15px 0;
+  font-size: 18px;
+  color: #000000;
+}
+
+.drivers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.driver-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.driver-card:hover {
+  background: #f0f0f0;
+  transform: translateX(5px);
+}
+
+.driver-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.driver-details {
+  flex: 1;
+}
+
+.driver-details h4 {
+  margin: 0 0 4px 0;
+  font-size: 16px;
+  color: #000000;
+}
+
+.driver-details > p {
+  margin: 0 0 6px 0;
+  color: #666666;
+  font-size: 13px;
+}
+
+.driver-meta {
+  display: flex;
+  gap: 15px;
+  font-size: 12px;
+}
+
+.rating {
+  color: #000000;
+  font-weight: 600;
+}
+
+.distance {
+  color: #666666;
+}
+
+/* Active Ride Section */
+.active-ride-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ride-status {
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  color: #ffffff;
+  padding: 25px 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.ride-status h3 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.eta {
+  margin: 0;
+  font-size: 14px;
+  color: #b0b0b0;
+}
+
+.driver-info-card {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.driver-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.driver-avatar-large {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.driver-header > div:nth-child(2) {
+  flex: 1;
+}
+
+.driver-header h4 {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+  color: #000000;
+}
+
+.driver-header p {
+  margin: 0;
+  color: #666666;
+  font-size: 14px;
+}
+
+.plate-number {
+  font-weight: 600;
+  color: #000000 !important;
+}
+
+.driver-rating-large {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.trip-details {
+  padding: 20px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.trip-location {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.trip-icon {
+  font-size: 20px;
+}
+
+.trip-location .label {
+  margin: 0 0 4px 0;
+  font-size: 12px;
+  color: #999999;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.trip-location .value {
+  margin: 0;
+  font-size: 15px;
+  color: #000000;
+  font-weight: 500;
+}
+
+.trip-divider {
+  height: 20px;
+  width: 2px;
+  background: #e0e0e0;
+  margin-left: 10px;
+}
+
+.fare-estimate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  font-size: 16px;
+}
+
+.fare-estimate span:first-child {
+  color: #666666;
+}
+
+.fare-amount {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.ride-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.contact-driver-btn,
+.cancel-ride-btn {
+  flex: 1;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.contact-driver-btn {
+  background: #000000;
+  color: #ffffff;
+}
+
+.contact-driver-btn:hover {
+  background: #1a1a1a;
+  transform: translateY(-2px);
+}
+
+.cancel-ride-btn {
+  background: #ffffff;
+  color: #ff3b30;
+  border: 2px solid #ff3b30;
+}
+
+.cancel-ride-btn:hover {
+  background: #ff3b30;
+  color: #ffffff;
+  transform: translateY(-2px);
+}

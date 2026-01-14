@@ -1,0 +1,180 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  overflow-y: auto;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.ubby-logo {
+  font-size: 64px;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0 0 10px 0;
+  text-shadow: 
+    0 0 30px rgba(138, 100, 255, 0.8),
+    0 0 60px rgba(100, 200, 255, 0.6),
+    4px 4px 0px rgba(100, 200, 255, 0.4),
+    -2px -2px 0px rgba(138, 100, 255, 0.4);
+  letter-spacing: -2px;
+  font-family: 'Poppins', sans-serif;
+  text-transform: lowercase;
+}
+
+.ubby-tagline {
+  color: #b0b0b0;
+  font-size: 14px;
+  margin: 0;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 350px;
+  background: #1a1a1a;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #ffffff;
+  background: #333333;
+}
+
+.form-group input::placeholder {
+  color: #666666;
+}
+
+.user-type-selection {
+  margin: 25px 0;
+}
+
+.user-type-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.user-type-btn {
+  flex: 1;
+  background: #2a2a2a;
+  border: 2px solid #3a3a3a;
+  padding: 20px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  color: #b0b0b0;
+}
+
+.user-type-btn .icon {
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+.user-type-btn span:not(.icon) {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.user-type-btn .type-desc {
+  font-size: 12px;
+  color: #808080;
+  margin: 0;
+}
+
+.user-type-btn.active {
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+.user-type-btn.active span:not(.icon) {
+  color: #000000;
+}
+
+.user-type-btn.active .type-desc {
+  color: #666666;
+}
+
+.user-type-btn:hover {
+  transform: translateY(-2px);
+  border-color: #ffffff;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+}
+
+.toggle-form {
+  text-align: center;
+  margin-top: 20px;
+  color: #b0b0b0;
+  font-size: 14px;
+}
+
+.toggle-form button {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  font-size: 14px;
+}
+
+.toggle-form button:hover {
+  color: #e0e0e0;
+}
