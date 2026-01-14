@@ -1,120 +1,72 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --accent-color: #276ef1; /* Uber Blue */
+    --gray-light: #f6f6f6;
 }
 
-body {
-    visibility: hidden;
+[data-theme="dark"] {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --gray-light: #1f1f1f;
 }
 
-.app {
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    background-color: var(--background-primary);
-
-    font-family: 'Poppins', sans-serif;
+body, html, #app {
+    margin: 0; padding: 0;
+    height: 100%; width: 100%;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow: hidden;
 }
 
-.app-wrapper {
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 3rem;
-}
-
-.header,
-.button-wrapper {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    gap: 0.2rem;
-}
-
-.button-wrapper {
-    gap: 1rem;
-}
-
-.title {
-    font-size: 1.4rem;
-    font-weight: 700;
-
-    color: var(--text-primary);
-}
-
-.subtitle {
-    font-size: 1rem;
-    font-weight: 400;
-
-    color: var(--text-secondary);
-}
-
-button {
-    width: 14rem;
-    height: 3.25rem;
-
-    background-color: var(--background-highlight);
-    color: var(--text-primary);
-
-    border: none;
-    border-radius: 0.3rem;
-
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-
-    cursor: pointer;
-    transition: all 0.25s ease-in-out;
-
-    user-select: none;
-}
-
-button:hover {
-    filter: brightness(0.8);
-}
-
-input {
-    width: 14rem;
-    height: 3.25rem;
-
-    background-color: var(--background-highlight);
-    color: var(--text-primary);
-
-    border: none;
-    border-radius: 0.3rem;
-
-    padding: 0 1rem;
-
-    font-size: 0.8rem;
-    font-weight: 600;
-
-    transition: all 0.25s ease-in-out;
-
-    outline: none;
-}
-
-/* Do not edit, this allows you to view changes easily in your browser */
-.dev-wrapper {
+.page {
     display: none;
-
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-
-    margin: auto;
-
-    width: 29rem;
-    height: 58.5rem;
+    height: 100%;
+    flex-direction: column;
+    padding: 20px;
 }
+
+.page.active { display: flex; }
+
+/* Splash Screen */
+#landing-page {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.logo-container { margin-bottom: 20px; }
+.main-logo { width: 80px; height: 80px; }
+.brand-name { font-size: 32px; font-weight: 800; margin: 10px 0; }
+.tagline { opacity: 0.7; margin-bottom: 40px; }
+
+/* Buttons */
+.btn-primary {
+    background: var(--text-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 15px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    width: 80%;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Auth Cards */
+.auth-card {
+    background: var(--gray-light);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.auth-card:active { transform: scale(0.98); }
+.auth-card .icon { font-size: 30px; margin-right: 15px; }
+.auth-card h3 { margin: 0; font-size: 18px; }
+.auth-card p { margin: 5px 0 0; font-size: 14px; opacity: 0.6; }

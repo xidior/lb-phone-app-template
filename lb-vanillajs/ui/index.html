@@ -1,54 +1,56 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Custom App Template</title>
-        <link rel="stylesheet" href="styles.css" />
-        <link rel="stylesheet" href="colors.css" />
-        <link rel="stylesheet" href="frame.css" />
+<div id="app">
+    <!-- 1. Splash / Landing Page -->
+    <div id="landing-page" class="page active">
+        <div class="splash-content">
+            <div class="logo-container">
+                <!-- Replace with your logo URL or a local path -->
+                <img src="https://chatgpt.com/backend-api/estuary/content?id=file_0000000050b071fdb4faa07b958ad0ed&ts=491206&p=fs&cid=1&sig=3804b897c0c334615b68cab268a0bc9c694507db80ffc61f725568a3928dbb19&v=0" alt="Ubby" class="main-logo">
+                <h1 class="brand-name">Ubby</h1>
+            </div>
+            <p class="tagline">Move with safety, earn with freedom.</p>
+            <button class="btn-primary" onclick="navigateTo('auth-screen')">Get Started</button>
+        </div>
+    </div>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
-    </head>
-    <body>
-        <div id="phone-wrapper">
-            <div class="app" id="content">
-                <div class="app-wrapper">
-                    <div class="header">
-                        <div class="title">Custom App Template</div>
-                        <div class="subtitle">Vanilla JS</div>
-                        <a class="subtitle" id="direction">N</a>
-                    </div>
-                    <div class="button-wrapper">
-                        <button id="popup">Popup Menu</button>
-                        <button id="context">Context Menu</button>
-                        <button id="gif">Gif Selector</button>
-                        <button id="gallery">Gallery Selector</button>
-                        <button id="emoji">Emoji Selector</button>
-                        <button id="colorpicker">Color Picker</button>
-                        <button id="cameracomponent">Camera Component</button>
-                        <input id="notificationText" type="text" placeholder="Notification text" />
-                    </div>
+    <!-- 2. Role Selection (Auth Screen) -->
+    <div id="auth-screen" class="page">
+        <div class="header">
+            <button class="back-btn" onclick="navigateTo('landing-page')">←</button>
+            <h2>Join Ubby</h2>
+        </div>
+        <div class="auth-options">
+            <div class="auth-card" onclick="signUp('passenger')">
+                <div class="icon">👤</div>
+                <div class="text">
+                    <h3>Passenger</h3>
+                    <p>Request a ride in seconds.</p>
+                </div>
+            </div>
+            <div class="auth-card" onclick="signUp('driver')">
+                <div class="icon">🚗</div>
+                <div class="text">
+                    <h3>Driver</h3>
+                    <p>Drive when you want, earn what you need.</p>
                 </div>
             </div>
         </div>
+    </div>
 
-        <script src="dev.js"></script>
-        <script>
-            window.addEventListener('message', (e) => {
-                if (e.data === 'componentsLoaded') {
-                    const script = document.createElement('script');
-                    script.src = 'script.js';
-                    document.body.appendChild(script);
+    <!-- 3. Passenger Dashboard -->
+    <div id="passenger-page" class="page">
+        <!-- Passenger content here -->
+        <h2>Where to?</h2>
+        <input type="text" placeholder="Enter destination...">
+        <button onclick="requestRide()">Request Ubby</button>
+    </div>
 
-                    fetchNui('getDirection').then((direction) => {
-                        document.getElementById('direction').innerText = direction;
-                    });
-                } else if (e.data?.type === 'updateDirection') {
-                    document.getElementById('direction').innerText = e.data.direction;
-                }
-            });
-        </script>
-    </body>
-</html>
+    <!-- 4. Driver Dashboard -->
+    <div id="driver-page" class="page">
+        <!-- Driver content here -->
+        <h2>Driver Mode</h2>
+        <div id="requests-list">
+            <p>Waiting for requests...</p>
+        </div>
+        <button onclick="toggleDuty()">Go Off Duty</button>
+    </div>
+</div>
