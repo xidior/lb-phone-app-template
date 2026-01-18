@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTA Bus</title>
+    <link rel="stylesheet" href="colors.css">
+    <link rel="stylesheet" href="frame.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<div class="dev-wrapper">
+    <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-time" id="phone-time">00:00</div>
+        <div class="phone-indicator"></div>
+        <div class="phone-content">
+<div id="app">
+    <!-- Landing Page -->
+    <div id="landing-page" class="page active">
+            <div class="splash-content">
+                <div class="logo-container">
+                    <div class="mta-logo">MTA</div>
+                    <h1 class="brand-name">Bus Time</h1>
+                </div>
+                <p class="tagline">Real-time bus information for New York</p>
+                <div class="quick-actions">
+                    <button class="btn-primary" onclick="navigateTo('role-select')">Get Started</button>
+                    <button class="btn-secondary" onclick="navigateTo('routes-page')">View Routes</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Role Selection -->
+        <div id="role-select" class="page">
+            <div class="header">
+                <button class="back-btn" onclick="navigateTo('landing-page')">←</button>
+                <h2>Select Role</h2>
+            </div>
+            <div class="role-cards">
+                <div class="role-card" onclick="selectRole('passenger')">
+                    <div class="icon"><i data-lucide="map-pin" stroke-width="2"></i></div>
+                    <div class="text">
+                        <h3>Passenger</h3>
+                        <p>Track buses and plan trips</p>
+                    </div>
+                </div>
+                <div class="role-card" onclick="selectRole('driver')">
+                    <div class="icon"><i data-lucide="bus" stroke-width="2"></i></div>
+                    <div class="text">
+                        <h3>Driver</h3>
+                        <p>Operate bus routes</p>
+                    </div>
+                </div>
+                <div class="role-card" onclick="selectRole('dispatcher')">
+                    <div class="icon"><i data-lucide="radio" stroke-width="2"></i></div>
+                    <div class="text">
+                        <h3>Dispatcher</h3>
+                        <p>Monitor all active buses</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Passenger Dashboard -->
+        <div id="passenger-page" class="page">
+            <div class="header">
+                <button class="back-btn" onclick="navigateTo('landing-page')">←</button>
+                <h2>Passenger</h2>
+            </div>
+            <div class="tab-nav">
+                <button class="tab-btn active" onclick="switchTab('trip-planner')">Plan Trip</button>
+                <button class="tab-btn" onclick="switchTab('nearby')">Nearby</button>
+                <button class="tab-btn" onclick="switchTab('fare')">Fare</button>
+            </div>
+            
+            <!-- Trip Planner Tab -->
+            <div id="trip-planner" class="tab-content active">
+                <div class="input-group">
+                    <label>From</label>
+                    <select id="trip-from">
+                        <option value="">Select location...</option>
+                        <option value="Hove Beach">Hove Beach</option>
+                        <option value="Star Junction">Star Junction</option>
+                        <option value="Middle Park">Middle Park</option>
+                        <option value="Dukes">Dukes</option>
+                        <option value="Alderney">Alderney</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>To</label>
+                    <select id="trip-to">
+                        <option value="">Select destination...</option>
+                        <option value="Airport">Francis Intl Airport</option>
+                        <option value="Star Junction">Star Junction</option>
+                        <option value="Castle Gardens">Castle Gardens</option>
+                        <option value="Bohan">Bohan</option>
+                        <option value="Port Tudor">Port Tudor</option>
+                    </select>
+                </div>
+                <button class="btn-primary" onclick="planTrip()">Find Routes</button>
+                
+                <div id="trip-results" class="trip-results" style="display: none;">
+                    <!-- Results will be populated here -->
+                </div>
+            </div>
+
+            <!-- Nearby Buses Tab -->
+            <div id="nearby" class="tab-content">
+                <div class="nearby-buses">
+                    <h3>Buses Near You</h3>
+                    <div id="nearby-list" class="bus-list">
+                        <p class="loading">Loading nearby buses...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fare Information Tab -->
+            <div id="fare" class="tab-content">
+                <div class="fare-info">
+                    <h3>Fare Options</h3>
+                    <div class="fare-card" onclick="purchasePass('single')">
+                        <div class="fare-header">
+                            <span class="fare-name">Single Ride</span>
+                            <span class="fare-price">$2.75</span>
+                        </div>
+                        <p class="fare-desc">Valid for one ride</p>
+                    </div>
+                    <div class="fare-card" onclick="purchasePass('day')">
+                        <div class="fare-header">
+                            <span class="fare-name">Day Pass</span>
+                            <span class="fare-price">$8.25</span>
+                        </div>
+                        <p class="fare-desc">Unlimited rides for 1 day</p>
+                    </div>
+                    <div class="fare-card" onclick="purchasePass('week')">
+                        <div class="fare-header">
+                            <span class="fare-name">7-Day Pass</span>
+                            <span class="fare-price">$33.00</span>
+                        </div>
+                        <p class="fare-desc">Unlimited rides for 7 days</p>
+                    </div>
+                    <div class="fare-card" onclick="purchasePass('month')">
+                        <div class="fare-header">
+                            <span class="fare-name">30-Day Pass</span>
+                            <span class="fare-price">$127.00</span>
+                        </div>
+                        <p class="fare-desc">Unlimited rides for 30 days</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Driver Dashboard -->
+        <div id="driver-page" class="page">
+            <div class="header">
+                <button class="back-btn" onclick="navigateTo('landing-page')">←</button>
+                <h2>Driver Dashboard</h2>
+            </div>
+            
+            <div id="driver-idle" class="driver-section">
+                <div class="status-card">
+                    <h3>Select Your Route</h3>
+                    <p>Choose a route to start driving</p>
+                </div>
+                <div id="route-selection" class="route-list">
+                    <!-- Routes will be populated here -->
+                </div>
+            </div>
+
+            <div id="driver-active" class="driver-section" style="display: none;">
+                <div class="status-card active">
+                    <h3>Currently Driving: <span id="current-route">M1</span></h3>
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="label">Passengers</span>
+                            <span class="value" id="passenger-count">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">Next Stop</span>
+                            <span class="value" id="next-stop">Loading...</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">On Time</span>
+                            <span class="value status-good">✓</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-danger" onclick="stopDriving()">End Shift</button>
+            </div>
+        </div>
+
+        <!-- Dispatcher Dashboard -->
+        <div id="dispatcher-page" class="page">
+            <div class="header">
+                <button class="back-btn" onclick="navigateTo('landing-page')">←</button>
+                <h2>Dispatch Center</h2>
+            </div>
+            
+            <div class="dispatcher-stats">
+                <div class="stat-box">
+                    <div class="stat-value" id="total-buses">0</div>
+                    <div class="stat-label">Active Buses</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="total-passengers">0</div>
+                    <div class="stat-label">Total Passengers</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="on-time">100%</div>
+                    <div class="stat-label">On Time</div>
+                </div>
+            </div>
+
+            <h3 class="section-title">Active Buses</h3>
+            <div id="dispatcher-bus-list" class="dispatcher-list">
+                <p class="empty-state">No active buses</p>
+            </div>
+        </div>
+
+        <!-- Routes Page -->
+        <div id="routes-page" class="page">
+            <div class="header">
+                <button class="back-btn" onclick="navigateTo('landing-page')">←</button>
+                <h2>Bus Routes</h2>
+            </div>
+            <div id="routes-list" class="routes-list">
+                <!-- Routes will be populated here -->
+            </div>
+        </div>
+
+        <!-- Route Detail Page -->
+        <div id="route-detail" class="page">
+            <div class="header">
+                <button class="back-btn" onclick="navigateTo('routes-page')">←</button>
+                <h2 id="route-detail-name">Route Detail</h2>
+            </div>
+            <div id="route-detail-content">
+                <!-- Route details will be populated here -->
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+</div>
+
+    <script src="dev.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Update time display
+        function updateTime() {
+            const date = new Date();
+            const hours = date.getHours().toString().padStart(2, '0');
+            const minutes = date.getMinutes().toString().padStart(2, '0');
+            document.getElementById('phone-time').textContent = `${hours}:${minutes}`;
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>

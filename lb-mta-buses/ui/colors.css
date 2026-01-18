@@ -1,0 +1,33 @@
+/* MTA Color Scheme */
+:root {
+    /* MTA Official Colors */
+    --mta-blue: #0039A6;
+    --mta-yellow: #FCCC0A;
+    --mta-orange: #FF6319;
+    --mta-green: #6CBE45;
+    --mta-red: #EE352E;
+    --mta-purple: #B933AD;
+    --mta-brown: #996633;
+    
+    /* UI Colors */
+    --primary: var(--mta-blue);
+    --secondary: var(--mta-yellow);
+    --success: var(--mta-green);
+    --danger: var(--mta-red);
+    --warning: var(--mta-orange);
+    
+    /* Theme Colors */
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --gray-light: #f5f5f5;
+    --gray-medium: #e0e0e0;
+    --gray-dark: #666666;
+}
+
+[data-theme="dark"] {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --gray-light: #1a1a1a;
+    --gray-medium: #333333;
+    --gray-dark: #999999;
+}

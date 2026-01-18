@@ -1,0 +1,667 @@
+:root {
+    --mta-blue: #0039A6;
+    --mta-yellow: #FCCC0A;
+    --mta-orange: #FF6319;
+    --mta-green: #6CBE45;
+    --mta-red: #EE352E;
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --gray-light: #f5f5f5;
+    --gray-medium: #e0e0e0;
+    --gray-dark: #666666;
+}
+
+[data-theme="dark"] {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --gray-light: #1a1a1a;
+    --gray-medium: #333333;
+    --gray-dark: #999999;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html, #app {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow: hidden;
+}
+
+.page {
+    display: none;
+    height: 100%;
+    flex-direction: column;
+    padding: 14px;
+    padding-top: 60px;
+    overflow-y: auto;
+}
+
+.page.active {
+    display: flex;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+    gap: 10px;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 4px;
+}
+
+.header h2 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Landing Page */
+#landing-page {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.splash-content {
+    width: 100%;
+}
+
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.mta-logo {
+    width: 80px;
+    height: 80px;
+    background: var(--mta-blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: 900;
+    margin: 0 auto 12px;
+}
+
+.brand-name {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.tagline {
+    font-size: 13px;
+    color: var(--gray-dark);
+    margin-bottom: 30px;
+}
+
+.quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-secondary,
+.btn-danger {
+    border: none;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-primary {
+    background: var(--mta-blue);
+    color: white;
+}
+
+.btn-secondary {
+    background: var(--gray-light);
+    color: var(--text-color);
+}
+
+.btn-danger {
+    background: var(--mta-red);
+    color: white;
+}
+
+.btn-primary:active,
+.btn-secondary:active,
+.btn-danger:active {
+    opacity: 0.8;
+}
+
+/* Role Cards */
+.role-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.role-card {
+    background: var(--gray-light);
+    padding: 14px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.role-card:active {
+    transform: scale(0.98);
+}
+
+.role-card .icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.role-card .icon i {
+    width: 28px;
+    height: 28px;
+}
+
+.role-card .text h3 {
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+
+.role-card .text p {
+    font-size: 12px;
+    color: var(--gray-dark);
+}
+
+/* Tabs */
+.tab-nav {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+    border-bottom: 2px solid var(--gray-medium);
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-dark);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.2s;
+}
+
+.tab-btn.active {
+    color: var(--mta-blue);
+    border-bottom-color: var(--mta-blue);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Input Groups */
+.input-group {
+    margin-bottom: 12px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.input-group select,
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--gray-medium);
+    border-radius: 8px;
+    font-size: 14px;
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Trip Results */
+.trip-results {
+    margin-top: 14px;
+}
+
+.trip-card {
+    background: var(--gray-light);
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+.trip-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.trip-time {
+    color: var(--mta-blue);
+}
+
+.trip-routes {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.route-badge {
+    background: var(--mta-blue);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.transfers {
+    font-size: 12px;
+    color: var(--gray-dark);
+}
+
+.trip-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.step {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: var(--bg-color);
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.step.transfer {
+    justify-content: center;
+    color: var(--gray-dark);
+}
+
+.step-route {
+    font-weight: 700;
+    min-width: 40px;
+}
+
+.step-desc {
+    flex: 1;
+    padding: 0 10px;
+}
+
+.step-time {
+    color: var(--gray-dark);
+}
+
+/* Bus List */
+.bus-list,
+.nearby-buses {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bus-card {
+    background: var(--gray-light);
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bus-route {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.bus-info {
+    flex: 1;
+    padding: 0 12px;
+    font-size: 12px;
+    color: var(--gray-dark);
+}
+
+.bus-eta {
+    font-weight: 600;
+    color: var(--mta-blue);
+}
+
+/* Fare Cards */
+.fare-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fare-card {
+    background: var(--gray-light);
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.fare-card:active {
+    transform: scale(0.98);
+}
+
+.fare-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.fare-name {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.fare-price {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--mta-blue);
+}
+
+.fare-desc {
+    font-size: 12px;
+    color: var(--gray-dark);
+}
+
+/* Routes List */
+.routes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.route-card {
+    background: var(--gray-light);
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.route-card:active {
+    transform: scale(0.98);
+}
+
+.route-header {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.route-id {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.route-name {
+    font-weight: 600;
+    flex: 1;
+    font-size: 14px;
+}
+
+.route-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--gray-dark);
+}
+
+/* Route Detail */
+.route-detail-card {
+    background: var(--gray-light);
+    padding: 14px;
+    border-radius: 10px;
+}
+
+.route-detail-card h3 {
+    font-size: 16px;
+    margin-bottom: 14px;
+}
+
+.detail-section {
+    margin-bottom: 14px;
+}
+
+.detail-section h4 {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--gray-dark);
+}
+
+.frequency {
+    font-size: 12px;
+    color: var(--gray-dark);
+}
+
+.fare-amount {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--mta-blue);
+}
+
+.stops-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.stop-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    background: var(--bg-color);
+    border-radius: 6px;
+}
+
+.stop-number {
+    width: 22px;
+    height: 22px;
+    background: var(--mta-blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.stop-name {
+    font-size: 13px;
+}
+
+/* Driver Dashboard */
+.driver-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.status-card {
+    background: var(--gray-light);
+    padding: 14px;
+    border-radius: 10px;
+    margin-bottom: 14px;
+}
+
+.status-card.active {
+    background: var(--mta-blue);
+    color: white;
+}
+
+.status-card h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat .label {
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+.stat .value {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+.status-good {
+    color: var(--mta-green);
+}
+
+.route-select-card {
+    background: var(--gray-light);
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 8px;
+    transition: transform 0.1s;
+}
+
+.route-select-card:active {
+    transform: scale(0.98);
+}
+
+.route-select-card .route-id {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.route-select-card .route-stops {
+    font-size: 11px;
+    color: var(--gray-dark);
+}
+
+/* Dispatcher Dashboard */
+.dispatcher-stats {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.stat-box {
+    flex: 1;
+    background: var(--gray-light);
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--mta-blue);
+}
+
+.stat-label {
+    font-size: 11px;
+    color: var(--gray-dark);
+    margin-top: 4px;
+}
+
+.section-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.dispatcher-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.dispatcher-bus {
+    background: var(--gray-light);
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.bus-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.bus-status {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+
+.bus-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--gray-dark);
+}
+
+/* Utility Classes */
+.loading,
+.empty-state {
+    text-align: center;
+    color: var(--gray-dark);
+    padding: 30px 16px;
+}
