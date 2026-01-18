@@ -1,11 +1,12 @@
 fx_version "cerulean"
 game "gta5"
 
-title "LB Phone - App Template | React JS"
-description "A template for creating apps for the LB Phone."
-author "Breze & Loaf"
+title "LB Phone - Ubby Ride Sharing"
+description "Ride-sharing app for LB Phone"
+author "Your Name"
 
 client_script "client.lua"
+server_script "server.lua"
 
 file "ui/dist/**/*"
 
